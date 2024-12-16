@@ -149,7 +149,7 @@ export async function fetchData(
 /**
  * preloadCache(service, endpoint, data):
  * Allows tests or other code to manually preload the cache.
- * Useful for scenarios where you want fallback data in case of API failure.
+ * Useful scenarios for fallback data in case of API failure.
  */
 export function preloadCache(
   service: "noaa" | "nasa",

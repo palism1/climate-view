@@ -6,8 +6,8 @@ export const generateVisualization = (data: {
   labels: string[];
   values: number[];
 }): ChartConfiguration => {
-  // Implement your visualization logic here
-  // For example, you can use Chart.js or any other visualization library
+  // Implement  visualization logic here
+  // For example,  use Chart.js or any other visualization library
   return {
     type: "bar",
     data: {
@@ -42,7 +42,7 @@ export class VisualizationEngine {
   public render() {
     const visualizationConfig = generateVisualization(this.data);
     // Implement rendering logic here
-    // For example, you can use a library like Chart.js to render the chart on a canvas element
+    // For example,use a library like Chart.js to render the chart on a canvas element
     const ctx = document.getElementById("myChart") as HTMLCanvasElement;
     if (ctx) {
       new Chart(ctx, visualizationConfig);

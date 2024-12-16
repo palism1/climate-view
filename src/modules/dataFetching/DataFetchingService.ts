@@ -1,8 +1,6 @@
 interface ClimateData {
-  // Define the structure of ClimateData
   temperature: number;
   humidity: number;
-  // Add other relevant fields
 }
 
 const NOAA_BASE_URL = "https://api.noaa.gov";
@@ -13,7 +11,6 @@ const NASA_API_KEY = "your-nasa-api-key";
 const cache = new Map<string, ClimateData>();
 
 function validateFetchedData(data: unknown): data is ClimateData {
-  // Implement validation logic
   return (
     data &&
     typeof data === "object" &&

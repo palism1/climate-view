@@ -22,12 +22,11 @@ function CmsPageWrapper() {
 }
 
 function VisualizationPageWrapper() {
-  const { data } = useParams();
-  if (!data) {
-    return <div>Error: Data is missing</div>;
+  const { dataId } = useParams();
+  if (!dataId) {
+    return <div>Error: Data ID is missing</div>;
   }
-  const parsedData = JSON.parse(data);
-  return <VisualizationPage data={parsedData} />;
+  return <VisualizationPage dataId={dataId} />;
 }
 
 function App() {
@@ -50,7 +49,7 @@ function App() {
             <Route path="/cms/:pageId" element={<CmsPageWrapper />} />{" "}
             {/* Add CMS route */}
             <Route
-              path="/visualization/:data"
+              path="/visualization/:dataId"
               element={<VisualizationPageWrapper />}
             />{" "}
             {/* Add Visualization route */}

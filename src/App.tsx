@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -9,6 +10,7 @@ import Tabs from "./components/Tabs";
 import Footer from "./components/Footer";
 import CmsPage from "./modules/cms/CmsPage";
 import VisualizationPage from "./modules/visualizationEngine/VisualizationPage";
+import { fetchData } from "./modules/dataFetching/DataFetchingService";
 import "./App.css"; // Import the external CSS file
 
 function CmsPageWrapper() {
@@ -29,6 +31,16 @@ function VisualizationPageWrapper() {
 }
 
 function App() {
+  const [climateData, setClimateData] = useState(null);
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await fetchData("noaa", "weather-data");
+      setClimateData(data);
+    };
+    getData();
+  }, []);
+
   return (
     <Router>
       <div className="app-container">

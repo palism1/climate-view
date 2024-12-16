@@ -1,4 +1,6 @@
 import { Chart, ChartConfiguration } from "chart.js";
+import { ApexOptions } from "apexcharts";
+import { ApexAxisChartSeries } from "apexcharts/dist/types/apexcharts";
 
 export const generateVisualization = (data: {
   labels: string[];
@@ -49,4 +51,19 @@ export class VisualizationEngine {
 }
 
 export * from "./VisualizationService";
-export * from "./VisualizationEngine"; // Ensure the file exists and is correctly named
+// Ensure the file exists and is correctly named
+// export * from "./VisualizationEngine";
+
+interface VisualizationData {
+  series: ApexAxisChartSeries;
+  options: ApexOptions;
+}
+
+export async function fetchVisualizationData(): Promise<VisualizationData> {
+  // Implement the function to fetch visualization data
+  // ...
+  return {
+    series: [], // Replace with actual data
+    options: {}, // Replace with actual options
+  };
+}

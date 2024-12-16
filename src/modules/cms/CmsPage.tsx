@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchCmsContent } from "./CmsService";
+import CircularProgress from "@mui/material/CircularProgress";
 
 interface CmsContent {
   title: string;
@@ -8,6 +9,7 @@ interface CmsContent {
 
 const CmsPage: React.FC<{ pageId: string }> = ({ pageId }) => {
   const [content, setContent] = useState<CmsContent | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getContent = async () => {
@@ -16,14 +18,20 @@ const CmsPage: React.FC<{ pageId: string }> = ({ pageId }) => {
         setContent(data);
       } catch (error) {
         console.error("Failed to load CMS content:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
     getContent();
   }, [pageId]);
 
+  if (loading) {
+    return <CircularProgress />;
+  }
+
   if (!content) {
-    return <p>Loading content...</p>;
+    return <p>Error loading content.</p>;
   }
 
   return (

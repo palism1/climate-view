@@ -6,6 +6,17 @@
   ],
   "compilerOptions": {
     "strict": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/modules",
+      "./src/__tests__", // Add this line
+      "./src/cms", // Add this line
+      "./src/dataFetching", // Add this line
+      "./src/visualizationEngine" // Add this line
+    ]
+  },
+  "include": [
+    "src/modules/**/*.d.ts" // Add this line to include the type declaration files
+  ]
 }

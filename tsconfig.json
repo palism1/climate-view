@@ -10,13 +10,11 @@
     "typeRoots": [
       "./node_modules/@types",
       "./src/modules",
-      "./src/__tests__", // Add this line
-      "./src/cms", // Add this line
-      "./src/dataFetching", // Add this line
-      "./src/visualizationEngine" // Add this line
+      "./src/__tests__",
+      "./src/cms",
+      "./src/dataFetching",
+      "./src/visualizationEngine"
     ]
   },
-  "include": [
-    "src/modules/**/*.d.ts" // Add this line to include the type declaration files
-  ]
+  "include": ["src/modules/**/*.d.ts"]
 }

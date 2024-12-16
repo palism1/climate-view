@@ -1,5 +1,5 @@
-import React from 'react';
-import { Line } from 'react-chartjs-2';
+import React from "react";
+import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,7 +10,8 @@ import {
   Tooltip,
   Legend,
   ChartOptions,
-} from 'chart.js';
+} from "chart.js";
+import "./TemperatureChart.css";
 
 // Register Chart.js modules
 ChartJS.register(
@@ -26,34 +27,34 @@ ChartJS.register(
 const TemperatureChart: React.FC = () => {
   // Static data for global temperatures
   const data = {
-    labels: ['2000', '2005', '2010', '2015', '2020'],
+    labels: ["2000", "2005", "2010", "2015", "2020"],
     datasets: [
       {
-        label: 'Global Temperature (°C)',
+        label: "Global Temperature (°C)",
         data: [14.5, 14.7, 14.8, 15.0, 15.3],
-        borderColor: 'rgba(255, 99, 132, 1)', // Line color
-        backgroundColor: 'rgba(255, 99, 132, 0.2)', // Fill color
+        borderColor: "rgba(255, 99, 132, 1)", // Line color
+        backgroundColor: "rgba(255, 99, 132, 0.2)", // Fill color
         tension: 0.4, // Smoothness of the curve
       },
     ],
   };
 
   // Correctly typed Chart.js options
-  const options: ChartOptions<'line'> = {
+  const options: ChartOptions<"line"> = {
     responsive: true,
     maintainAspectRatio: false, // Ensures chart resizes dynamically
     plugins: {
       legend: {
         display: true,
-        position: 'top',
+        position: "top",
         labels: {
-          color: '#fff', // Legend text matches dark theme
+          color: "#fff", // Legend text matches dark theme
         },
       },
       title: {
         display: true,
-        text: 'Global Temperature Trends',
-        color: '#fff', // Title matches dark theme
+        text: "Global Temperature Trends",
+        color: "#fff", // Title matches dark theme
         font: {
           size: 16, // Title font size
         },
@@ -63,14 +64,14 @@ const TemperatureChart: React.FC = () => {
       x: {
         title: {
           display: true,
-          text: 'Year',
-          color: '#fff', // Axis title matches dark theme
+          text: "Year",
+          color: "#fff", // Axis title matches dark theme
           font: {
             size: 14,
           },
         },
         ticks: {
-          color: '#fff', // Axis tick labels match dark theme
+          color: "#fff", // Axis tick labels match dark theme
           font: {
             size: 12,
           },
@@ -79,14 +80,14 @@ const TemperatureChart: React.FC = () => {
       y: {
         title: {
           display: true,
-          text: 'Temperature (°C)',
-          color: '#fff', // Axis title matches dark theme
+          text: "Temperature (°C)",
+          color: "#fff", // Axis title matches dark theme
           font: {
             size: 14,
           },
         },
         ticks: {
-          color: '#fff', // Axis tick labels match dark theme
+          color: "#fff", // Axis tick labels match dark theme
           font: {
             size: 12,
           },
@@ -96,17 +97,7 @@ const TemperatureChart: React.FC = () => {
   };
 
   return (
-    <div
-      style={{
-        height: '100%', // Adjust dynamically to parent container
-        width: '100%', // Adjust dynamically to parent container
-        maxHeight: '70vh', // Limit height
-        maxWidth: '90vw', // Limit width
-        margin: '0 auto', // Center horizontally
-        padding: '10px', // Padding around the chart
-        boxSizing: 'border-box', // Ensure padding is accounted for
-      }}
-    >
+    <div className="temperature-chart-container">
       <Line data={data} options={options} />
     </div>
   );

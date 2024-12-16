@@ -1,62 +1,45 @@
-import React, { useState } from 'react';
-import { Tabs as MuiTabs, Tab, Box } from '@mui/material';
-import TemperatureChart from './TemperatureChart';
-import SeaLevelChart from './SeaLevelChart';
-import WeatherPatternsMap from './WeatherPatternsMap';
+import React, { useState } from "react";
+import { Tabs as MuiTabs, Tab, Box } from "@mui/material";
+import TemperatureChart from "./TemperatureChart";
+import SeaLevelChart from "./SeaLevelChart";
+import WeatherPatternsMap from "./WeatherPatternsMap";
+import "./Tabs.css"; // Import the external CSS file
 
 const Tabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
 
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleTabChange = (_: React.SyntheticEvent, newValue: number) => {
     setActiveTab(newValue);
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%', // Take full height of content area
-        width: '100%', // Full width
-      }}
-    >
+    <div className="tabs-container">
       <MuiTabs
         value={activeTab}
         onChange={handleTabChange}
         centered
         textColor="primary"
         indicatorColor="primary"
-        style={{
-          backgroundColor: '#f5f5f5',
-          borderRadius: '8px',
-        }}
+        className="tabs"
       >
         <Tab label="Global Temperature" />
         <Tab label="Sea Levels" />
         <Tab label="Weather Patterns" />
       </MuiTabs>
 
-      <Box
-        style={{
-          flex: 1, // Take remaining height
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginTop: '10px',
-        }}
-      >
+      <Box className="tab-content">
         {activeTab === 0 && (
-          <div style={{ height: '100%', width: '100%' }}>
+          <div className="chart-container">
             <TemperatureChart />
           </div>
         )}
         {activeTab === 1 && (
-          <div style={{ height: '100%', width: '100%' }}>
+          <div className="chart-container">
             <SeaLevelChart />
           </div>
         )}
         {activeTab === 2 && (
-          <div style={{ height: '100%', width: '100%' }}>
+          <div className="chart-container">
             <WeatherPatternsMap />
           </div>
         )}

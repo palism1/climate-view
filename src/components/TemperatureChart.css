@@ -1,0 +1,9 @@
+.temperature-chart-container {
+  height: 100%; /* Adjust dynamically to parent container */
+  width: 100%; /* Adjust dynamically to parent container */
+  max-height: 70vh; /* Limit height */
+  max-width: 90vw; /* Limit width */
+  margin: 0 auto; /* Center horizontally */
+  padding: 10px; /* Padding around the chart */
+  box-sizing: border-box; /* Ensure padding is accounted for */
+}

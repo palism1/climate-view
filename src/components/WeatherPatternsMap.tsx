@@ -1,12 +1,13 @@
-import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
+import React from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L, { LatLngTuple } from "leaflet";
+import "./WeatherPatternsMap.css"; // Import the external CSS file
 
 // Fix marker icons
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
-import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
 // Define default marker icon to fix missing icons in Leaflet
 const DefaultIcon = L.icon({
@@ -22,30 +23,21 @@ L.Marker.prototype.options.icon = DefaultIcon;
 
 const WeatherPatternsMap: React.FC = () => {
   // Example marker data
-  const markers = [
-    { position: [37.7749, -122.4194], data: 'San Francisco: Clear skies, 22°C' },
-    { position: [51.5074, -0.1278], data: 'London: Rainy, 15°C' },
-    { position: [-33.8688, 151.2093], data: 'Sydney: Sunny, 28°C' },
+  const markers: { position: LatLngTuple; data: string }[] = [
+    {
+      position: [37.7749, -122.4194],
+      data: "San Francisco: Clear skies, 22°C",
+    },
+    { position: [51.5074, -0.1278], data: "London: Rainy, 15°C" },
+    { position: [-33.8688, 151.2093], data: "Sydney: Sunny, 28°C" },
   ];
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%', // Fill parent height
-        width: '100%', // Fill parent width
-        borderRadius: '8px',
-        overflow: 'hidden', // Prevent unwanted overflow
-      }}
-    >
+    <div className="map-container">
       <MapContainer
-        center={[20.0, 0.0] as [number, number]} // Explicitly type as a tuple
+        center={[20.0, 0.0] as LatLngTuple} // Explicitly type as a tuple
         zoom={2} // Initial zoom level
-        style={{
-          height: '100%',
-          width: '100%',
-        }}
+        className="map"
       >
         {/* Use a dark map theme for consistency with the app */}
         <TileLayer
@@ -56,9 +48,7 @@ const WeatherPatternsMap: React.FC = () => {
         {markers.map((marker, index) => (
           <Marker key={index} position={marker.position}>
             <Popup>
-              <div style={{ color: '#333', fontSize: '14px' }}>
-                {marker.data}
-              </div>
+              <div className="popup-content">{marker.data}</div>
             </Popup>
           </Marker>
         ))}

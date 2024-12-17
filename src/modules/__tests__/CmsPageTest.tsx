@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
-import "@testing-library/jest-dom"; // Add this import for jest-dom matchers
+import "@testing-library/jest-dom";
 import CmsPage from "../CmsPage";
 import { fetchCmsContent } from "../CmsService";
 

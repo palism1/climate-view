@@ -20,8 +20,6 @@ interface CmsPageProps {
   pageId: string;
 }
 
-// Removed unused type SomeType and interface SomeInterface
-
 const CmsPage: React.FC<CmsPageProps> = ({ pageId }) => {
   const [content, setContent] = useState<CmsContent | null>(null);
   const [loading, setLoading] = useState(true);

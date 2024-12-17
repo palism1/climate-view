@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const CMS_API_BASE_URL = "http://127.0.0.1:5000/api/cms"; // Replace with your CMS API base URL
+const CMS_API_BASE_URL = "http://127.0.0.1:5000/api/cms";
 
 export const fetchCmsContent = async (pageId: string) => {
   try {

@@ -6,8 +6,6 @@ interface VisualizationData {
 }
 
 export async function fetchVisualizationData(): Promise<VisualizationData> {
-  // Implement the function to fetch visualization data
-  // For now, return mock data
   return {
     series: [
       {

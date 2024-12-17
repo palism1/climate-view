@@ -10,7 +10,7 @@ import Tabs from "./components/Tabs";
 import Footer from "./components/Footer";
 import CmsPage from "./modules/cms/CmsPage";
 import VisualizationPage from "./modules/visualizationEngine/VisualizationPage";
-import { fetchData } from "./modules/dataFetching/DataFetchingService";
+import { fetchData } from "./modules/DataFetchingModule";
 import "./App.css"; // Import the external CSS file
 
 function CmsPageWrapper() {

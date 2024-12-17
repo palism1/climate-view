@@ -17,6 +17,19 @@ describe("VisualizationService", () => {
     vi.spyOn(global, "fetch").mockResolvedValueOnce({
       ok: true,
       json: async () => mockData,
+      headers: new Headers(),
+      redirected: false,
+      status: 200,
+      statusText: "OK",
+      type: "basic",
+      url: "",
+      clone: () => this,
+      body: null,
+      bodyUsed: false,
+      arrayBuffer: async () => new ArrayBuffer(0),
+      blob: async () => new Blob(),
+      formData: async () => new FormData(),
+      text: async () => JSON.stringify(mockData),
     });
 
     const data = await fetchVisualizationData();

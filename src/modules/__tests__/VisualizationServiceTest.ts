@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { fetchVisualizationData } from "../VisualizationService";
+import { fetchVisualizationData } from "src/modules/visualizationEngine/VisualizationService.ts";
 
 describe("VisualizationService", () => {
   beforeEach(() => {
@@ -14,23 +14,12 @@ describe("VisualizationService", () => {
         xaxis: { categories: ["Jan", "Feb", "Mar", "Apr", "May"] },
       },
     };
-    vi.spyOn(global, "fetch").mockResolvedValueOnce({
-      ok: true,
-      json: async () => mockData,
-      headers: new Headers(),
-      redirected: false,
-      status: 200,
-      statusText: "OK",
-      type: "basic",
-      url: "",
-      clone: () => this,
-      body: null,
-      bodyUsed: false,
-      arrayBuffer: async () => new ArrayBuffer(0),
-      blob: async () => new Blob(),
-      formData: async () => new FormData(),
-      text: async () => JSON.stringify(mockData),
-    });
+    vi.spyOn(global, "fetch").mockResolvedValueOnce(
+      new Response(JSON.stringify(mockData), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      })
+    );
 
     const data = await fetchVisualizationData();
 

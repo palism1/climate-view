@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import React, { useEffect, useState } from "react";
 import { fetchCmsContent } from "./CmsService";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -7,7 +8,11 @@ interface CmsContent {
   body: string;
 }
 
-const CmsPage: React.FC<{ pageId: string }> = ({ pageId }) => {
+interface CmsPageProps {
+  pageId: string;
+}
+
+const CmsPage: React.FC<CmsPageProps> = ({ pageId }) => {
   const [content, setContent] = useState<CmsContent | null>(null);
   const [loading, setLoading] = useState(true);
 

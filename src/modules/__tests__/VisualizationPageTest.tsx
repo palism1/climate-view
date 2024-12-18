@@ -1,9 +1,11 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
-import VisualizationPage from "../VisualizationPage";
-import { fetchVisualizationData } from "../VisualizationService";
+import VisualizationPage from "../visualizationEngine/VisualizationPage";
+import { fetchVisualizationData } from "../visualizationEngine/VisualizationService";
 
-vi.mock("../VisualizationService");
+vi.mock("../visualizationEngine/VisualizationService", () => ({
+  fetchVisualizationData: vi.fn(),
+}));
 
 describe("VisualizationPage", () => {
   beforeEach(() => {
@@ -18,7 +20,7 @@ describe("VisualizationPage", () => {
         xaxis: { categories: ["Jan", "Feb", "Mar", "Apr", "May"] },
       },
     };
-    fetchVisualizationData.mockResolvedValueOnce(mockData);
+    (fetchVisualizationData as jest.Mock).mockResolvedValueOnce(mockData);
 
     render(<VisualizationPage dataId="test-data" />);
 
@@ -28,7 +30,9 @@ describe("VisualizationPage", () => {
   });
 
   it("displays loading indicator while fetching data", () => {
-    fetchVisualizationData.mockResolvedValueOnce(new Promise(() => {}));
+    (fetchVisualizationData as jest.Mock).mockResolvedValueOnce(
+      new Promise(() => {})
+    );
 
     render(<VisualizationPage dataId="test-data" />);
 
@@ -36,7 +40,9 @@ describe("VisualizationPage", () => {
   });
 
   it("displays error message when data fails to load", async () => {
-    fetchVisualizationData.mockRejectedValueOnce(new Error("Network Error"));
+    (fetchVisualizationData as jest.Mock).mockRejectedValueOnce(
+      new Error("Network Error")
+    );
 
     render(<VisualizationPage dataId="test-data" />);
 

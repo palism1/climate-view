@@ -18,8 +18,8 @@ const NOAA_BASE_URL =
   import.meta.env.NOAA_API_BASE_URL ?? "https://api.weather.gov";
 const NASA_BASE_URL =
   import.meta.env.NASA_API_BASE_URL ?? "https://api.nasa.gov";
-const NOAA_API_KEY = import.meta.env.NOAA_API_KEY ?? "Noaa API key not set";
-const NASA_API_KEY = import.meta.env.NASA_API_KEY ?? "Nasa API key not set";
+const NOAA_API_KEY = import.meta.env.NOAA_API_KEY ?? "NOAA-DEMO-KEY";
+const NASA_API_KEY = import.meta.env.NASA_API_KEY ?? "NASA-DEMO-KEY";
 
 // Simple in-memory cache used to store the latest successful fetch results,
 // allowing fallback if API calls fail subsequently.

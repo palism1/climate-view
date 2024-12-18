@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { fetchVisualizationData } from "src/modules/visualizationEngine/VisualizationService.ts";
+import { fetchVisualizationData } from "../visualizationEngine/VisualizationService.ts";
 
 describe("VisualizationService", () => {
   beforeEach(() => {

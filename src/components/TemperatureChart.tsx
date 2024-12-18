@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-import React from "react";
-=======
 // TemperatureChart.tsx
 
 import React, { useState, useEffect } from "react";
->>>>>>> Pratik
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -31,22 +27,62 @@ ChartJS.register(
 );
 
 const TemperatureChart: React.FC = () => {
-<<<<<<< HEAD
-  // Static data for global temperatures
-=======
   const [plotUrl, setPlotUrl] = useState<string>("");
   const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
   const [selectedRegion, setSelectedRegion] = useState<string>("");
 
   // List of all 50 US states
   const states = [
-    "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut",
-    "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
-    "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan",
-    "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
-    "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma",
-    "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee",
-    "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+    "Alabama",
+    "Alaska",
+    "Arizona",
+    "Arkansas",
+    "California",
+    "Colorado",
+    "Connecticut",
+    "Delaware",
+    "Florida",
+    "Georgia",
+    "Hawaii",
+    "Idaho",
+    "Illinois",
+    "Indiana",
+    "Iowa",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Maine",
+    "Maryland",
+    "Massachusetts",
+    "Michigan",
+    "Minnesota",
+    "Mississippi",
+    "Missouri",
+    "Montana",
+    "Nebraska",
+    "Nevada",
+    "New Hampshire",
+    "New Jersey",
+    "New Mexico",
+    "New York",
+    "North Carolina",
+    "North Dakota",
+    "Ohio",
+    "Oklahoma",
+    "Oregon",
+    "Pennsylvania",
+    "Rhode Island",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "Texas",
+    "Utah",
+    "Vermont",
+    "Virginia",
+    "Washington",
+    "West Virginia",
+    "Wisconsin",
+    "Wyoming",
   ];
 
   // Fetch the Python-generated plot on component mount
@@ -61,83 +97,19 @@ const TemperatureChart: React.FC = () => {
   }, []);
 
   // Static Chart.js data
->>>>>>> Pratik
   const data = {
     labels: ["2000", "2005", "2010", "2015", "2020"],
     datasets: [
       {
         label: "Global Temperature (°C)",
         data: [14.5, 14.7, 14.8, 15.0, 15.3],
-<<<<<<< HEAD
-        borderColor: "rgba(255, 99, 132, 1)", // Line color
-        backgroundColor: "rgba(255, 99, 132, 0.2)", // Fill color
-        tension: 0.4, // Smoothness of the curve
-=======
         borderColor: "rgba(255, 99, 132, 1)",
         backgroundColor: "rgba(255, 99, 132, 0.2)",
         tension: 0.4,
->>>>>>> Pratik
       },
     ],
   };
 
-<<<<<<< HEAD
-  // Correctly typed Chart.js options
-  const options: ChartOptions<"line"> = {
-    responsive: true,
-    maintainAspectRatio: false, // Ensures chart resizes dynamically
-    plugins: {
-      legend: {
-        display: true,
-        position: "top",
-        labels: {
-          color: "#fff", // Legend text matches dark theme
-        },
-      },
-      title: {
-        display: true,
-        text: "Global Temperature Trends",
-        color: "#fff", // Title matches dark theme
-        font: {
-          size: 16, // Title font size
-        },
-      },
-    },
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: "Year",
-          color: "#fff", // Axis title matches dark theme
-          font: {
-            size: 14,
-          },
-        },
-        ticks: {
-          color: "#fff", // Axis tick labels match dark theme
-          font: {
-            size: 12,
-          },
-        },
-      },
-      y: {
-        title: {
-          display: true,
-          text: "Temperature (°C)",
-          color: "#fff", // Axis title matches dark theme
-          font: {
-            size: 14,
-          },
-        },
-        ticks: {
-          color: "#fff", // Axis tick labels match dark theme
-          font: {
-            size: 12,
-          },
-        },
-      },
-    },
-=======
   const options: ChartOptions<"line"> = {
     responsive: true,
     maintainAspectRatio: false,
@@ -166,14 +138,10 @@ const TemperatureChart: React.FC = () => {
         console.log("Region selected:", data);
       })
       .catch((error) => console.error("Error sending region:", error));
->>>>>>> Pratik
   };
 
   return (
     <div className="temperature-chart-container">
-<<<<<<< HEAD
-      <Line data={data} options={options} />
-=======
       <div style={{ height: "400px" }}>
         {/* Tab to toggle dropdown */}
         <button onClick={toggleDropdown} className="dropdown-btn">
@@ -211,7 +179,6 @@ const TemperatureChart: React.FC = () => {
           />
         </div>
       )}
->>>>>>> Pratik
     </div>
   );
 };

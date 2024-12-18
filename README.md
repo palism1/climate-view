@@ -13,45 +13,26 @@ If you are developing a production application, we recommend updating the config
 
 - Configure the top-level `parserOptions` property like this:
 
-```js
 export default tseslint.config({
   languageOptions: {
     // other options...
     parserOptions: {
-<<<<<<< HEAD
       project: ["./tsconfig.node.json", "./tsconfig.app.json"],
       tsconfigRootDir: import.meta.dirname,
     },
   },
 });
-=======
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
->>>>>>> Pratik
-```
 
 - Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
 - Optionally add `...tseslint.configs.stylisticTypeChecked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
 // eslint.config.js
-<<<<<<< HEAD
 import react from "eslint-plugin-react";
 
 export default tseslint.config({
   // Set the react version
   settings: { react: { version: "18.3" } },
-=======
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
->>>>>>> Pratik
   plugins: {
     // Add the react plugin
     react,
@@ -60,13 +41,6 @@ export default tseslint.config({
     // other rules...
     // Enable its recommended rules
     ...react.configs.recommended.rules,
-<<<<<<< HEAD
     ...react.configs["jsx-runtime"].rules,
   },
 });
-=======
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
->>>>>>> Pratik
-```

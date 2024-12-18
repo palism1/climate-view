@@ -1,37 +1,62 @@
-import React from 'react';
-import Header from './components/Header';
-import Tabs from './components/Tabs';
-import Footer from './components/Footer';
+import { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useParams,
+} from "react-router-dom";
+import Header from "./components/Header";
+import Tabs from "./components/Tabs";
+import Footer from "./components/Footer";
+import CmsPage from "./modules/cms/CmsPage";
+import VisualizationPage from "./modules/visualizationEngine/VisualizationPage";
+import { fetchData } from "./modules/DataFetchingModule";
+import "./App.css"; // Import the external CSS file
+
+function CmsPageWrapper() {
+  const { pageId } = useParams();
+  if (!pageId) {
+    return <div>Error: Page ID is missing</div>;
+  }
+  return <CmsPage pageId={pageId} />;
+}
+
+function VisualizationPageWrapper() {
+  const { dataId } = useParams();
+  if (!dataId) {
+    return <div>Error: Data ID is missing</div>;
+  }
+  return <VisualizationPage dataId={dataId} />;
+}
 
 function App() {
+  useEffect(() => {
+    const getData = async () => {
+      const data = await fetchData("noaa", "weather-data");
+      console.log(data); // Log the data instead of setting it to state
+    };
+    getData();
+  }, []);
+
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100vh', // Full height of the viewport
-        width: '100vw', // Full width of the viewport
-        backgroundColor: '#121212', // Dark theme background
-      }}
-    >
-      {/* Header */}
-      <Header />
-
-      {/* Main Content (Tabs and Charts/Maps) */}
-      <div
-        style={{
-          flex: 1, // Fill remaining space between header and footer
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Tabs />
+    <Router>
+      <div className="app-container">
+        <Header />
+        <div className="content-container">
+          <Routes>
+            <Route path="/cms/:pageId" element={<CmsPageWrapper />} />{" "}
+            {/* Add CMS route */}
+            <Route
+              path="/visualization/:dataId"
+              element={<VisualizationPageWrapper />}
+            />{" "}
+            {/* Add Visualization route */}
+            <Route path="/" element={<Tabs />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
-
-      {/* Footer */}
-      <Footer />
-    </div>
+    </Router>
   );
 }
 

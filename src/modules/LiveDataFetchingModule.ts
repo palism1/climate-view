@@ -9,7 +9,9 @@ export const fetchNOAALiveData = async (
     const metadataResponse = await fetch(
       `${noaaBaseURL}/${latitude},${longitude}`
     );
-    const metadata = await metadataResponse.json();
+    const metadata = (await metadataResponse.json()) as {
+      properties: { forecast: string };
+    };
 
     const forecastUrl = metadata.properties.forecast;
     const forecastResponse = await fetch(forecastUrl);

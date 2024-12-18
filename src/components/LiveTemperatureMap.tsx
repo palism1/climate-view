@@ -7,6 +7,7 @@ import {
   updateTemperatureForCapital,
 } from "../utils/capitalMarkers"; // Updated import
 import starIconUrl from "../assets/star-icon.png"; // Import the star icon
+import "./LiveTemperatureMap.css"; // Import the external CSS file
 
 // Define the custom star icon
 const starIcon = new L.Icon({
@@ -56,18 +57,11 @@ const LiveTemperatureMap: React.FC = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        height: "100%",
-        width: "100%",
-      }}
-    >
+    <div className="map-container">
       <MapContainer
         center={[37.8, -96]} // Center on the US
         zoom={4} // Initial zoom level
-        style={{ height: "100%", width: "100%" }}
+        className="map"
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -4,6 +4,7 @@ import TemperatureChart from "./TemperatureChart";
 import SeaLevelChart from "./SeaLevelChart";
 import WeatherPatternsMap from "./WeatherPatternsMap";
 import LiveTemperatureMap from "./LiveTemperatureMap"; // Import the new component
+import "./Tabs.css"; // Import the CSS file
 
 const Tabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -13,14 +14,7 @@ const Tabs: React.FC = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        height: "100%", // Take full height of content area
-        width: "100%", // Full width
-      }}
-    >
+    <div className="tabs-container">
       <MuiTabs
         value={activeTab}
         onChange={handleTabChange}
@@ -35,15 +29,7 @@ const Tabs: React.FC = () => {
         <Tab label="Live Temperature" /> {/* New Tab */}
       </MuiTabs>
 
-      <Box
-        style={{
-          flex: 1, // Take remaining height
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: "10px",
-        }}
-      >
+      <Box className="box-container">
         {activeTab === 0 && (
           <div className="chart-container">
             <TemperatureChart />
@@ -60,7 +46,7 @@ const Tabs: React.FC = () => {
           </div>
         )}
         {activeTab === 3 && ( // New Content for Live Temperature Tab
-          <div style={{ height: "100%", width: "100%" }}>
+          <div className="live-temperature-container">
             <LiveTemperatureMap />
           </div>
         )}

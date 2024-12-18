@@ -1,18 +1,19 @@
-html, body, #root {
-    margin: 0;
-    padding: 0;
-    height: 100%; /* Full height for the entire app */
-    width: 100%; /* Full width for the entire app */
-    overflow: hidden; /* Prevent unwanted scrollbars */
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #121212; /* Dark theme */
-    color: #fff; /* Light text for dark theme */
-  }
-  
-  div {
-    box-sizing: border-box; /* Ensure consistent sizing */
-  }
-  
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Full height for the entire app */
+  width: 100%; /* Full width for the entire app */
+  overflow: hidden; /* Prevent unwanted scrollbars */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212; /* Dark theme */
+  color: #fff; /* Light text for dark theme */
+}
+
+div {
+  box-sizing: border-box; /* Ensure consistent sizing */
+}

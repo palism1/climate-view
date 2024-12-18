@@ -4,7 +4,10 @@ import TemperatureChart from "./TemperatureChart";
 import SeaLevelChart from "./SeaLevelChart";
 import WeatherPatternsMap from "./WeatherPatternsMap";
 import LiveTemperatureMap from "./LiveTemperatureMap"; // Import the new component
+<<<<<<< HEAD
 import "./Tabs.css"; // Import the CSS file
+=======
+>>>>>>> Pratik
 
 const Tabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -14,7 +17,18 @@ const Tabs: React.FC = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div className="tabs-container">
+=======
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100%", // Take full height of content area
+        width: "100%", // Full width
+      }}
+    >
+>>>>>>> Pratik
       <MuiTabs
         value={activeTab}
         onChange={handleTabChange}
@@ -29,7 +43,19 @@ const Tabs: React.FC = () => {
         <Tab label="Live Temperature" /> {/* New Tab */}
       </MuiTabs>
 
+<<<<<<< HEAD
       <Box className="box-container">
+=======
+      <Box
+        style={{
+          flex: 1, // Take remaining height
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "10px",
+        }}
+      >
+>>>>>>> Pratik
         {activeTab === 0 && (
           <div className="chart-container">
             <TemperatureChart />
@@ -46,7 +72,11 @@ const Tabs: React.FC = () => {
           </div>
         )}
         {activeTab === 3 && ( // New Content for Live Temperature Tab
+<<<<<<< HEAD
           <div className="live-temperature-container">
+=======
+          <div style={{ height: "100%", width: "100%" }}>
+>>>>>>> Pratik
             <LiveTemperatureMap />
           </div>
         )}

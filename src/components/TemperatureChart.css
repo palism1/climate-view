@@ -7,3 +7,28 @@
   padding: 10px; /* Padding around the chart */
   box-sizing: border-box; /* Ensure padding is accounted for */
 }
+<<<<<<< HEAD
+=======
+
+.dropdown-btn {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.dropdown-btn:hover {
+  background-color: #45a049;
+}
+
+.dropdown-select {
+  margin-top: 10px;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+>>>>>>> Pratik

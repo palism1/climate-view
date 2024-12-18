@@ -1,0 +1,31 @@
+.temperature-chart-container {
+  height: 100%; /* Adjust dynamically to parent container */
+  width: 100%; /* Adjust dynamically to parent container */
+  max-height: 70vh; /* Limit height */
+  max-width: 90vw; /* Limit width */
+  margin: 0 auto; /* Center horizontally */
+  padding: 10px; /* Padding around the chart */
+  box-sizing: border-box; /* Ensure padding is accounted for */
+}
+
+.dropdown-btn {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.dropdown-btn:hover {
+  background-color: #45a049;
+}
+
+.dropdown-select {
+  margin-top: 10px;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+

@@ -1,0 +1,18 @@
+.map-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Fill parent height */
+  width: 100%; /* Fill parent width */
+  border-radius: 8px;
+  overflow: hidden; /* Prevent unwanted overflow */
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+}
+
+.popup-content {
+  color: #333;
+  font-size: 14px;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -30,12 +30,10 @@ function VisualizationPageWrapper() {
 }
 
 function App() {
-  const [climateData, setClimateData] = useState(null);
-
   useEffect(() => {
     const getData = async () => {
       const data = await fetchData("noaa", "weather-data");
-      setClimateData(data);
+      console.log(data); // Log the data instead of setting it to state
     };
     getData();
   }, []);

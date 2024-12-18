@@ -1,15 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import React, { useEffect, useState } from "react";
 import {
-  fetchCmsContent,
   addCmsContent,
   updateCmsContent,
   deleteCmsContent,
   updateSystemConfig,
 } from "./CmsService";
-import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import { fetchData } from "../DataFetchingModule";
 
 interface CmsContent {
   title: string;
@@ -32,8 +31,11 @@ const CmsPage: React.FC<CmsPageProps> = ({ pageId }) => {
   useEffect(() => {
     const getContent = async () => {
       try {
-        const data = await fetchCmsContent(pageId);
-        setContent(data);
+        const fetchedContent = (await fetchData(
+          "noaa",
+          pageId
+        )) as unknown as CmsContent;
+        setContent(fetchedContent);
       } catch (error) {
         console.error("Failed to load CMS content:", error);
       } finally {
@@ -81,7 +83,7 @@ const CmsPage: React.FC<CmsPageProps> = ({ pageId }) => {
   };
 
   if (loading) {
-    return <CircularProgress />;
+    return <p>Loading...</p>;
   }
 
   if (!content) {

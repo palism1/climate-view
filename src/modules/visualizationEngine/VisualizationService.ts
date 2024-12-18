@@ -5,21 +5,10 @@ interface VisualizationData {
   options: ApexOptions;
 }
 
-export async function fetchVisualizationData(): Promise<VisualizationData> {
-  return {
-    series: [
-      {
-        name: "Sample Data",
-        data: [10, 20, 30, 40, 50],
-      },
-    ],
-    options: {
-      chart: {
-        type: "line",
-      },
-      xaxis: {
-        categories: ["Jan", "Feb", "Mar", "Apr", "May"],
-      },
-    },
-  };
-}
+export const fetchVisualizationData = async (): Promise<VisualizationData> => {
+  const response = await fetch(`/api/visualization-data`);
+  if (!response.ok) {
+    throw new Error("Failed to fetch visualization data");
+  }
+  return response.json();
+};

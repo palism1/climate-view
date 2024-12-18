@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { fetchTemperatureData } from "../services/api";
 
+interface TemperatureData {
+  // Define the structure of temperature data here
+  // For example:
+  date: string;
+  temperature: number;
+}
+
 const Home: React.FC = () => {
-  const [temperatureData, setTemperatureData] = useState<any>(null);
+  const [temperatureData, setTemperatureData] = useState<
+    TemperatureData[] | null
+  >(null);
 
   useEffect(() => {
     const getTemperatureData = async () => {

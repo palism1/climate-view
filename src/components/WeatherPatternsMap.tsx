@@ -46,7 +46,7 @@ const WeatherPatternsMap: React.FC = () => {
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
-          attribution="&copy; OpenStreetMap contributors, &copy; Humanitarian OpenStreetMap Team"
+          attribution="&copy;, Meteomatics"
         />
         {/* Add markers dynamically */}
         {markers.map((marker, index) => (

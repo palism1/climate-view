@@ -1,13 +1,3 @@
-.temperature-chart-container {
-  height: 100%; /* Adjust dynamically to parent container */
-  width: 100%; /* Adjust dynamically to parent container */
-  max-height: 70vh; /* Limit height */
-  max-width: 90vw; /* Limit width */
-  margin: 0 auto; /* Center horizontally */
-  padding: 10px; /* Padding around the chart */
-  box-sizing: border-box; /* Ensure padding is accounted for */
-}
-
 .dropdown-btn {
   padding: 8px 16px;
   background-color: #4caf50;
@@ -29,3 +19,19 @@
   border-radius: 5px;
 }
 
+.temperature-chart-container {
+  height: fit-content;
+  width: fit-content;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 1em;
+  padding: 10% 10%;
+  height: auto;
+  width: 50vw;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  color: #4caf50;
+}

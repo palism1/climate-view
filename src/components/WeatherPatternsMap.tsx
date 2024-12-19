@@ -35,14 +35,18 @@ const WeatherPatternsMap: React.FC = () => {
   return (
     <div className="map-container">
       <MapContainer
-        center={[20.0, 0.0] as LatLngTuple} // Explicitly type as a tuple
-        zoom={2} // Initial zoom level
-        className="map"
+        center={[37.8, -96]} // Center on the US
+        zoom={4}
+        style={{ height: "100%", width: "100%" }}
+        maxBounds={[
+          [-90, -180],
+          [90, 180],
+        ]}
+        minZoom={3}
       >
-        {/* Use a dark map theme for consistency with the app */}
         <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-          attribution="&copy; OpenStreetMap contributors, &copy; CARTO"
+          url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
+          attribution="&copy; OpenStreetMap contributors, &copy; Humanitarian OpenStreetMap Team"
         />
         {/* Add markers dynamically */}
         {markers.map((marker, index) => (

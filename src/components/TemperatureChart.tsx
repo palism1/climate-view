@@ -143,6 +143,7 @@ const TemperatureChart: React.FC = () => {
   return (
     <div className="temperature-chart-container">
       <div style={{ height: "400px" }}>
+        <h2>Global Temperature Trends</h2>
         {/* Tab to toggle dropdown */}
         <button onClick={toggleDropdown} className="dropdown-btn">
           Select Region

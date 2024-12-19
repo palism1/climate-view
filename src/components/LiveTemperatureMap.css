@@ -1,11 +1,19 @@
-.map-container {
-  display: flex;
-  flex-direction: column;
+.map {
   height: 100%;
   width: 100%;
 }
 
-.map {
-  height: 100%;
-  width: 100%;
+.map-container {
+  height: 60vh;
+  width: 60vw;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin: 0 auto;
+  border-radius: 1em;
+  padding: 5% 5%;
+}
+
+.live-temperature-container {
+  height: 2000px;
+  width: 2000px;
 }

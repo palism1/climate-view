@@ -50,17 +50,17 @@ const Tabs: React.FC = () => {
           </div>
         )}
         {activeTab === 1 && (
-          <div className="chart-container">
+          <div className="sea-levels-container">
             <SeaLevelChart />
           </div>
         )}
         {activeTab === 2 && (
-          <div className="chart-container">
+          <div className="weather-pattern-map-container">
             <WeatherPatternsMap />
           </div>
         )}
         {activeTab === 3 && ( // New Content for Live Temperature Tab
-          <div style={{ height: "100%", width: "100%" }}>
+          <div className="weather-pattern-map-container">
             <LiveTemperatureMap />
           </div>
         )}

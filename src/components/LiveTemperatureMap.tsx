@@ -68,6 +68,11 @@ const LiveTemperatureMap: React.FC = () => {
         center={[37.8, -96]} // Center on the US
         zoom={4} // Initial zoom level
         style={{ height: "100%", width: "100%" }}
+        maxBounds={[
+          [-90, -180],
+          [90, 180],
+        ]}
+        minZoom={3}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -56,14 +56,7 @@ const LiveTemperatureMap: React.FC = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        height: "100%",
-        width: "100%",
-      }}
-    >
+    <div className="map-container">
       <MapContainer
         center={[37.8, -96]} // Center on the US
         zoom={4} // Initial zoom level

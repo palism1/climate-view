@@ -60,7 +60,7 @@ const SeaLevelChart: React.FC = () => {
     },
   };
 
-  return <Bar data={data} options={options} />;
+  return <Bar className="sea-level-chart" data={data} options={options} />;
 };
 
 export default SeaLevelChart;

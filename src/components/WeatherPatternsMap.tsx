@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L, { LatLngTuple } from "leaflet";
@@ -31,6 +31,19 @@ const WeatherPatternsMap: React.FC = () => {
     { position: [51.5074, -0.1278], data: "London: Rainy, 15°C" },
     { position: [-33.8688, 151.2093], data: "Sydney: Sunny, 28°C" },
   ];
+
+  const [plotUrl, setPlotUrl] = useState<string>("");
+
+    // Fetch the Python-generated plot on component mount
+    useEffect(() => {
+      fetch("http://127.0.0.1:5000/prediction-plot")
+        .then((response) => response.blob())
+        .then((blob) => {
+          const url = URL.createObjectURL(blob);
+          setPlotUrl(url);
+        })
+        .catch((error) => console.error("Error fetching the plot:", error));
+    }, []);
 
   return (
     <div className="map-container">
